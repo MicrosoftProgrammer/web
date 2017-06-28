@@ -1,0 +1,8 @@
+adminpanel/node_modules
+adminpanel/bower_components
+adminpanel/backup/*.*
+adminpanel/dist
+adminpanel/vendor
+adminpanel/uploads/*.*
+adminpanel/backup/*.*
+adminpanel/images/*.*
