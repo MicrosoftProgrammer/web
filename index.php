@@ -11,8 +11,6 @@
 </head>
 <body>
 <?php echo fnFrontMenu(); ?>
-
-    <!-- Page Content -->
     <div class="container">
         <?php echo fnlogoBanner(); ?>
         <div class="row" id="main">
@@ -22,67 +20,17 @@
                         <?php echo fnService(); ?>
                     </div>
                 </div>
-                <div class="col-md-3">
-            
+                <div class="col-md-3">            
                     <?php echo fnAdvertisement(); ?>
-                            <?php echo fnNews(); ?>
+                    <?php echo fnNews(); ?>
                 </div>
             </div>
         </div>
-
-
-                </div>
-
-            </div>
-
-        </div>
-
     </div>
-    <!-- /.container -->
-
     <div class="container">
-
         <hr>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-2">
-                    <h4>About Us</h4>
-                    <div><?php echo fnFooterMenu(); ?></div>
-                </div>
-                <div class="col-lg-2">
-                    <h4>Services</h4>
-                    <div><?php echo fnServicesMenu(); ?></div>
-                </div>                
-                <div class="col-lg-4">                    
-                    <?php $page= fnPage('news'); ?>
-                    <h4><?php echo $page->PageTitle; ?></h4>
-                    <div><?php echo $page->PageShortDescription; ?></div>
-                </div>
-                <div class="col-lg-4">
-                    <?php $page= fnPage('privacy-policy'); ?>
-                    <h4><?php echo $page->PageTitle; ?></h4>
-                    <div><?php echo $page->PageShortDescription; ?></div>
-                </div>
-
-                <div class="col-lg-12">
-                    <br>
-                    <p class="text-center">Copyright &copy; 2017 <?php echo $_SESSION["CompanyName"]; ?> | Designed by Our Own Solutions</p>
-                </div>
-            </div>
-        </footer>
-
+        <?php fnFrontFooter(); ?>
     </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="vendor/jquery/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-
+    <?php echo fnFrontScript(); ?>
 </body>
-
 </html>

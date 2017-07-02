@@ -196,3 +196,19 @@ margin:0 5px 0 -15px;
 footer ul li a{
     color: white;    
 }
+
+.title{
+      font-size: 16px;
+    color: #2A271E;
+    background-color: #CAC254;
+    padding: 10px;
+    display: block;
+    font-weight: bold;
+    margin: 0;  
+}
+
+.content{
+    background-color: white;
+    padding: 10px;
+    display: inline-block;
+}

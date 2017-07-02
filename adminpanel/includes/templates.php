@@ -131,24 +131,7 @@ function fnFrontMenu(){
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a class="active" href="#">Home</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">About Us</a>
-                    </li>
-                    <li>
-                        <a href="#">News</a>
-                    </li>  
-                    <li>
-                        <a href="#">Career</a>
-                    </li>  
-                    <li>
-                        <a href="#">Contact Us</a>
-                    </li>                                                            
+                    '.fnHeaderMenu().'                                                         
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -214,9 +197,9 @@ function fnNews(){
             
                 <div class="marquee">';
     while($obj = mysql_fetch_object($res)){
-         $html =$html."<div class='news'><h3>".$obj->NewsText."</h3>";
+         $html =$html."<a class='pull-right' href='pages.php?mode=news&Id=".$obj->NewsID."'><div class='news'><h3>".$obj->NewsText."</h3>";
          $html =$html."<p>".$obj->NewsShortDescription."</p>";
-         $html =$html."<a class='pull-right' href='#'>Read More</a></div>";
+         $html =$html."Read More</div></a>";
     }
                     
    $html =$html.'</div>
@@ -232,7 +215,7 @@ function fnAdvertisement(){
         $AdvertisementImage = explode(",",$obj->AdvertisementImage);
         $html =$html.'    
                             <div class="thumbnail">
-                            <a href="#">
+                            <a href="pages.php?mode=advertisement&Id='.$obj->AdvertisementID.'">
                                 <img src="images/advertisement/'.$AdvertisementImage[0].'" alt="'.$obj->AdvertisementText.'" />                               
                                     <h4 class="ad-title">'.$obj->AdvertisementText.'
                                     </h4>  
@@ -252,7 +235,7 @@ function fnService(){
     while($obj = mysql_fetch_object($res)){
         $ServiceImage = explode(",",$obj->ServiceImage);
         $html =$html.'    <div class="col-sm-6 col-lg-6 col-md-6">
-                            <div id="recent-news">'.$obj->ServiceText.'<a class="pull-right" href="#">Read More</a></div>
+                            <div id="recent-news">'.$obj->ServiceText.'<a class="pull-right" href="pages.php?mode=service&Id='.$obj->ServiceID.'">Read More</a></div>
                             <div class="thumbnail">
                                 <img src="images/Service/'.$ServiceImage[0].'" alt="'.$obj->ServiceText.'" />
                                 <div class="caption">
@@ -280,10 +263,26 @@ function fnFooterMenu(){
     $res=mysql_query($sql);
     $html ='<ul>';
     while($obj = mysql_fetch_object($res)){
-        $html =$html.'<li><a href="#">'.$obj->PageTitle.'</a></li>';
+        $html =$html.'<li><a href="page.php?PageSlug='.$obj->PageSlug.'">'.$obj->PageTitle.'</a></li>';
     }
                     
    $html =$html.'</ul>';
+    return $html;
+}
+
+function fnHeaderMenu(){
+    $sql = "select * from pages where deleted=0 and ShowInHeaderMenu=1";
+    $res=mysql_query($sql);
+    $html="";
+    while($obj = mysql_fetch_object($res)){
+        if($_REQUEST["PageSlug"]==$obj->PageSlug || ($_REQUEST["PageSlug"]=="" && $obj->PageSlug=="home")){
+            $html =$html.'<li><a class="active" href="page.php?PageSlug='.$obj->PageSlug.'">'.$obj->PageTitle.'</a></li>';
+        }
+        else{
+            $html =$html.'<li><a href="page.php?PageSlug='.$obj->PageSlug.'">'.$obj->PageTitle.'</a></li>';
+        }
+    }
+                    
     return $html;
 }
 
@@ -292,11 +291,89 @@ function fnServicesMenu(){
     $res=mysql_query($sql);
     $html ='<ul>';
     while($obj = mysql_fetch_object($res)){
-        $html =$html.'<li><a href="#">'.$obj->ServiceText.'</a></li>';
+        $html =$html.'<li><a href="pages.php?mode=service&Id='.$obj->ServiceID.'">'.$obj->ServiceText.'</a></li>';
     }
                     
    $html =$html.'</ul>';
     return $html;
+}
+
+function fnCareer(){
+    $sql = "select * from service where deleted=0";
+    $res=mysql_query($sql);
+    $html ='<div class="col-md-12">';
+    while($obj = mysql_fetch_object($res)){
+        $ServiceImage = explode(",",$obj->ServiceImage);
+        $html =$html.'    <div class="col-sm-6 col-lg-6 col-md-6">
+                            <div id="recent-news">'.$obj->ServiceText.'<a class="pull-right" href="pages.php?mode=service&Id='.$obj->ServiceID.'">Read More</a></div>
+                            <div class="thumbnail">
+                                <img src="images/Service/'.$ServiceImage[0].'" alt="'.$obj->ServiceText.'" />
+                                <div class="caption">
+                                    <h4><a href="#">'.$obj->ServiceText.'</a>
+                                    </h4>
+                                    <p>'.$obj->ServiceShortDescription.'</p>
+                                </div>
+                            </div>
+                        </div>';
+    }
+                    
+   $html =$html.'</div>';
+    return $html;
+}
+
+function fnContact(){
+    $sql = "select * from service where deleted=0";
+    $res=mysql_query($sql);
+    $html ='<div class="col-md-12">';
+    while($obj = mysql_fetch_object($res)){
+        $ServiceImage = explode(",",$obj->ServiceImage);
+        $html =$html.'    <div class="col-sm-6 col-lg-6 col-md-6">
+                            <div id="recent-news">'.$obj->ServiceText.'<a class="pull-right" href="pages.php?mode=service&Id='.$obj->ServiceID.'">Read More</a></div>
+                            <div class="thumbnail">
+                                <img src="images/Service/'.$ServiceImage[0].'" alt="'.$obj->ServiceText.'" />
+                                <div class="caption">
+                                    <h4><a href="#">'.$obj->ServiceText.'</a>
+                                    </h4>
+                                    <p>'.$obj->ServiceShortDescription.'</p>
+                                </div>
+                            </div>
+                        </div>';
+    }
+                    
+   $html =$html.'</div>';
+    return $html;
+}
+
+function fnFrontFooter(){
+    ?>
+            <footer>
+            <div class="row">
+                <div class="col-lg-2">
+                    <h4>About Us</h4>
+                    <div><?php echo fnFooterMenu(); ?></div>
+                </div>
+                <div class="col-lg-2">
+                    <h4>Services</h4>
+                    <div><?php echo fnServicesMenu(); ?></div>
+                </div>                
+                <div class="col-lg-4">                    
+                    <?php $page= fnPage('news'); ?>
+                    <h4><?php echo $page->PageTitle; ?></h4>
+                    <div><?php echo $page->PageShortDescription; ?></div>
+                </div>
+                <div class="col-lg-4">
+                    <?php $page= fnPage('privacy-policy'); ?>
+                    <h4><?php echo $page->PageTitle; ?></h4>
+                    <div><?php echo $page->PageShortDescription; ?></div>
+                </div>
+
+                <div class="col-lg-12">
+                    <br>
+                    <p class="text-center">Copyright &copy; 2017 <?php echo $_SESSION["CompanyName"]; ?> | Designed by Our Own Solutions</p>
+                </div>
+            </div>
+        </footer>
+    <?php
 }
 
 

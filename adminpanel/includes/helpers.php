@@ -510,5 +510,14 @@ function fnFrontCss(){
     return $html;
 }
 
+function fnFrontScript(){
+    $html='    <script src="vendor/jquery/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>';
+
+    return $html;
+}
+
 
 ?>
