@@ -1,7 +1,5 @@
 <?php
 function fnSideBar(){
-    $menu = json_decode($_SESSION["Permissions"],TRUE);
-    $pageName = $altpageName = basename($_SERVER['PHP_SELF']);
     $html ='
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -18,17 +16,23 @@ function fnSideBar(){
                             <a href="../pages/view_pages.php"><i class="fa fa-globe fa-fw"></i> Pages</a>
                         </li>
                          <li>
-                            <a href="../dashboard/index.php"><i class="fa fa-wrench fa-fw"></i> Services</a>
+                            <a href="../service/view_service.php"><i class="fa fa-wrench fa-fw"></i> Services</a>
                         </li>
                          <li>
-                            <a href="../advertisements/view_advertisements.php"><i class="fa fa-sitemap fa-fw"></i> Advertisements</a>
+                            <a href="../news/view_news.php"><i class="fa fa-newspaper-o fa-fw"></i> News</a>
+                        </li>                        
+                         <li>
+                            <a href="../advertisement/view_advertisement.php"><i class="fa fa-sitemap fa-fw"></i> Advertisements</a>
                         </li>
                          <li>
                             <a href="../banners/view_banners.php"><i class="fa fa-image fa-fw"></i> Banner</a>
                         </li>
                          <li>
-                            <a href="../dashboard/index.php"><i class="fa fa-graduation-cap fa-fw"></i> Careers</a>
+                            <a href="../career/view_career.php"><i class="fa fa-graduation-cap fa-fw"></i> Careers</a>                     
                         </li>
+                         <li>
+                            <a href="../enquiry/view_enquiry.php"><i class="fa fa-question fa-fw"></i> Enquiries</a>                     
+                        </li>                        
                          <li>
                             <a href="../user/userlog.php"><i class="fa fa-user fa-fw"></i> User log</a>
                         </li>

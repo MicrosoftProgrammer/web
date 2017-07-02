@@ -201,6 +201,16 @@ function isSuperAdmin(){
     }   
 }
 
+function removeFromString($str, $item) {
+    $parts = explode(',', $str);
+
+    while(($i = array_search($item, $parts)) !== false) {
+        unset($parts[$i]);
+    }
+
+    return implode(',', $parts);
+}
+
 function slugify($string) {
    $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
    $string = preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.

@@ -7,11 +7,11 @@
     {
         $Id = $_REQUEST["Id"];
 
-        $sql ="update advertisements set Deleted = 1
+        $sql ="update advertisement set Deleted = 1
                 where AdvertisementID=".$Id;
         mysql_query($sql);
 
-        header("location:view_advertisements.php?mode=deleted");
+        header("location:view_advertisement.php?mode=deleted");
     }
 ?>
 <!DOCTYPE html>
@@ -37,26 +37,26 @@
             <!-- /.row -->
                 <?php if($_REQUEST["mode"]=="added") { ?>
             <div class="alert alert-success alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-remove">&nbsp;</i></button>
                 <strong>Success!</strong> Advertisement Added Successfully.
             </div>
             <?php } ?>
             <?php if($_REQUEST["mode"]=="updated") { ?>
             <div class="alert alert-success alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-remove">&nbsp;</i></button>
                 <strong>Success!</strong> Advertisement Updated Successfully.
             </div>
             <?php } ?>
             <?php if($_REQUEST["mode"]=="deleted") { ?>
             <div class="alert alert-success alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-remove">&nbsp;</i></button>
                 <strong>Success!</strong> Advertisement Deleted Successfully.
             </div>
             <?php } ?>
             <!-- /.row -->
             <div class="row">
             
-                <div class="col-lg-12">
+                <div ++ass="col-lg-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <i class="fa fa-list">&nbsp;</i>View Advertisement
@@ -77,7 +77,7 @@
                                 </thead>
                                 <tbody>
                                     <?php 
-                                    $sql = "select * from advertisements where Deleted=0 ";
+                                    $sql = "select * from advertisement where Deleted=0 ";
                                     $sql .= " order by AdvertisementID";
                               
                                     $res = mysql_query($sql);
@@ -94,12 +94,21 @@
                                     <tr class="<?php echo $class; ?> gradeX">
                                         <td><?php echo $cnt; ?></td>
                                         <td><?php echo $obj->AdvertisementText; ?></td>   
-                                        <td class="center"><img src="../../images/advertisements/<?php echo $obj->AdvertisementImage; ?>" width="100" height="100" /></td>   
+                                        <td class="center">
+                                        <?php $images = explode(",",$obj->AdvertisementImage);
+                                        foreach($images as $image){
+                                            echo '<img src="../../images/advertisement/'.$image.'" class="img-responsive" style="width:100px;float:left" />';
+                                        }
+                                         ?>
+                                        </td>   
                                         <td class="center"><?php if($obj->Status=="1") echo "Active"; else echo "In-Active"; ?></td>
                                         <td class="center">
                                             <a href="edit_advertisement.php?mode=edit&Id=<?php echo $obj->AdvertisementID; ?>"><i class="fa fa-edit">&nbsp;</i>Edit</a>
                                             &nbsp;&nbsp;
                                             <a href="javascript:void(0)" onclick="fnDelete(<?php echo $obj->AdvertisementID; ?>);"><i class="fa fa-remove">&nbsp;</i>Delete</a>
+                                            &nbsp;&nbsp;
+                                            <a href="view_advertisement_details.php?mode=view&Id=<?php echo $obj->AdvertisementID; ?>"><i class="fa fa-search">&nbsp;</i>View</a>
+                                            
                                         </td>
                                     </tr>  
                                     <?php }
@@ -129,7 +138,7 @@
      {
          if(confirm("Are you sure want to delete .?"))
          {
-             document.location.href="view_advertisements.php?mode=delete&Id="+advertisementId;
+             document.location.href="view_advertisement.php?mode=delete&Id="+advertisementId;
          }
      }
      

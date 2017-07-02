@@ -23,12 +23,7 @@
         $FromEmail = str_replace("'","`",$_REQUEST["FromEmail"]);
         $file =post_img($_FILES['file']['name'], $_FILES['file']['tmp_name'],"../../images");
         $Fax = str_replace("'","`",$_REQUEST["Fax"]);
-        $CurrencyType = str_replace("'","`",$_REQUEST["CurrencyType"]);
-        $AccountNo = str_replace("'","`",$_REQUEST["CurrencyType"]);
-        $Bank = str_replace("'","`",$_REQUEST["Bank"]);
-        $SwiftCode = str_replace("'","`",$_REQUEST["SwiftCode"]);  
-        $BankAddress = str_replace("'","`",$_REQUEST["BankAddress"]);
-        $IBAN = str_replace("'","`",$_REQUEST["IBAN"]);               
+        $Location = str_replace("'","`",$_REQUEST["Location"]);            
         
             $sql = "UPDATE settings SET ";
             $sql.= "CompanyName	=	'".$CompanyName."', ";
@@ -39,12 +34,7 @@
             $sql.= "ContactNo	=	'".$ContactNo."', ";
             $sql.= "Email	=	'".$Email."', ";
             $sql.= "Fax	=	'".$Fax."', ";
-            $sql.= "CurrencyType	=	'".$CurrencyType."', ";
-            $sql.= "AccountNo	=	'".$AccountNo."', ";
-            $sql.= "Bank	=	'".$Bank."', ";
-            $sql.= "SwiftCode	=	'".$SwiftCode."', ";
-            $sql.= "BankAddress	=	'".$BankAddress."', ";
-            $sql.= "IBAN	=	'".$IBAN."', ";                        
+            $sql.= "Location	=	'".$Location."', ";                 
             $sql.= "FromEmail	=	'".$FromEmail."'";
             mysql_query($sql);				
 
@@ -135,31 +125,10 @@
                                             <label>From Email</label>
                                              <input type="email" class="form-control" name="FromEmail" required value="<?php echo $obj->FromEmail; ?>"/>
                                         </div>   
-
-                                        <div class="form-group col-md-6">
-                                            <label>Currency Type</label>
-                                             <input type="text" class="form-control" name="CurrencyType" required value="<?php echo $obj->CurrencyType; ?>"/>
-                                        </div>                                                   
-                                        <div class="form-group col-md-6">
-                                            <label>Account No</label>
-                                             <input type="text" class="form-control" name="AccountNo" required value="<?php echo $obj->AccountNo; ?>"/>
-                                        </div>        
-                                        <div class="form-group col-md-6">
-                                            <label>Bank</label>
-                                             <input type="text" class="form-control" name="Bank" required value="<?php echo $obj->Bank; ?>"/>
-                                        </div>       
-                                        <div class="form-group col-md-6">
-                                            <label>Swift Code</label>
-                                             <input type="text" class="form-control" name="SwiftCode" required value="<?php echo $obj->SwiftCode; ?>"/>
-                                        </div>        
-                                        <div class="form-group col-md-6">
-                                            <label>IBAN</label>
-                                             <input type="text" class="form-control" name="IBAN" required value="<?php echo $obj->IBAN; ?>"/>
-                                        </div>                                                                                                                                                          
-                                        <div class="form-group col-md-6">
-                                            <label>Bank Address</label>
-                                             <textarea class="form-control" rows="4" required name="BankAddress"><?php echo $obj->BankAddress; ?></textarea>
-                                        </div>                                                                                                                                                                
+                                        <div class="form-group col-md-12">
+                                            <label>Location Google map</label>
+                                            <textarea class="form-control" name="Location" rows="8"><?php echo $obj->Location; ?></textarea>
+                                        </div>                                                                                                                                                                                                           
                                         <div class="form-group col-md-12">
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                             <button type="reset" class="btn btn-danger">Reset</button>
