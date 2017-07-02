@@ -45,8 +45,8 @@
 
             if ($_FILES['PageImage']['name']!="")
             {     
-                del_img("../../images/pages/",$obj->PageImage);     
-                $_REQUEST['PageImage']=post_img($_FILES['PageImage']['name'], $_FILES['PageImage']['tmp_name'],"../../images/pages");
+                del_img("../../../images/pages/",$obj->PageImage);     
+                $_REQUEST['PageImage']=post_img($_FILES['PageImage']['name'], $_FILES['PageImage']['tmp_name'],"../../../images/pages");
             }
 
             if($_REQUEST['PageImage']=="")
@@ -124,7 +124,7 @@
                                         <div class="form-group col-md-6">
                                             <label>Page Image</label>
                                             <input class="form-control" name="PageImage" type="file" />       
-                                            <img src="../../images/pages/<?php echo $obj->PageImage; ?>" width="100" height="100" />                                     
+                                            <img src="../../../images/pages/<?php echo $obj->PageImage; ?>" width="100" height="100" />                                     
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label class="checkbox-inline">

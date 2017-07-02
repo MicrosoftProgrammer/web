@@ -18,8 +18,8 @@
 
         if ($_FILES['BannerImage']['name']!="")
 	    {        
-		    del_img("../../images/banners/",$obj->BannerImage);            
-		    $_REQUEST['BannerImage']=post_img($_FILES['BannerImage']['name'], $_FILES['BannerImage']['tmp_name'],"../../images/banners");
+		    del_img("../../../images/banners/",$obj->BannerImage);            
+		    $_REQUEST['BannerImage']=post_img($_FILES['BannerImage']['name'], $_FILES['BannerImage']['tmp_name'],"../../../images/banners");
 	    }
 
         $sql ="update banners set BannerText = '$BannerText'";
@@ -78,7 +78,7 @@
                                         <div class="form-group col-lg-6">
                                             <label>Banner Image</label>
                                             <input class="form-control" name="BannerImage" type="file" /> <br/>                                            
-                                            <img src="../../images/banners/<?php echo $obj->BannerImage; ?>" width="100" height="100" />
+                                            <img src="../../../images/banners/<?php echo $obj->BannerImage; ?>" width="100" height="100" />
                                         </div>
                                         <div class="form-group col-lg-12">
                                             <button type="submit" class="btn btn-success"><i class="fa fa-save">&nbsp;</i>Save</button>

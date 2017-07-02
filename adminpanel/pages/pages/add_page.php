@@ -38,7 +38,7 @@
 
             if ($_FILES['PageImage']['name']!="")
             {        
-                $_REQUEST['PageImage']=post_img($_FILES['PageImage']['name'], $_FILES['PageImage']['tmp_name'],"../../images/pages");
+                $_REQUEST['PageImage']=post_img($_FILES['PageImage']['name'], $_FILES['PageImage']['tmp_name'],"../../../images/pages");
             }
 
             if($_REQUEST['PageImage']=="")

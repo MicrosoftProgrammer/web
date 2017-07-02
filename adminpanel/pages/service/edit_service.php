@@ -12,7 +12,7 @@
     if($_REQUEST['mode']=="delete")
     {
         $updateImage = removeFromString($obj->ServiceImage,$_REQUEST["image"]);
-        del_img("../../images/service/",$_REQUEST["image"]);   
+        del_img("../../../images/service/",$_REQUEST["image"]);   
         $sql ="update service set ServiceImage = '".$updateImage."'
                 where ServiceID=".$Id;
         mysql_query($sql);
@@ -37,7 +37,7 @@
 
             if ($file_name!="")
             {        
-                $ServiceImage=post_img($file_name, $file_tmp,"../../images/service");
+                $ServiceImage=post_img($file_name, $file_tmp,"../../../images/service");
             }    
             
             $ServiceImages = $ServiceImages.$ServiceImage.",";
@@ -105,7 +105,7 @@
                                              <br/>                                            
                                         <?php $images = explode(",",$obj->ServiceImage);
                                             foreach($images as $image){
-                                                echo '<span class="col-lg-2"><img src="../../images/service/'.$image.'" class="img-responsive"/><br>
+                                                echo '<span class="col-lg-2"><img src="../../../images/service/'.$image.'" class="img-responsive"/><br>
                                                 <a href="javascript:void(0)" onclick=fnDeleteImage("'.$obj->ServiceID.'","'.$image.'")><i class="fa fa-remove">&nbsp;</i>Delete</a>
                                                 </span>';
                                             }

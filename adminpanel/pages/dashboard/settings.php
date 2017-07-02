@@ -21,7 +21,7 @@
         $ContactNo = str_replace("'","`",$_REQUEST["ContactNo"]);
         $Email = str_replace("'","`",$_REQUEST["Email"]);
         $FromEmail = str_replace("'","`",$_REQUEST["FromEmail"]);
-        $file =post_img($_FILES['file']['name'], $_FILES['file']['tmp_name'],"../../images");
+        $file =post_img($_FILES['file']['name'], $_FILES['file']['tmp_name'],"../../../images");
         $Fax = str_replace("'","`",$_REQUEST["Fax"]);
         $Location = str_replace("'","`",$_REQUEST["Location"]);            
         
@@ -110,7 +110,7 @@
                                              <textarea class="form-control" rows="4" required name="Address"><?php echo $obj->Address; ?></textarea>
                                         </div>  
                                          <div class="form-group col-md-6">
-                                            <img src="../../images/<?php echo $_SESSION['Logo']; ?>" alt="Logo" class="img-responsive" />                                          
+                                            <img src="../../../images/<?php echo $_SESSION['Logo']; ?>" alt="Logo" class="img-responsive" />                                          
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Fax</label>

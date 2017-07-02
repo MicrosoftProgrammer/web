@@ -10,7 +10,7 @@
 
         if ($_FILES['BannerImage']['name']!="")
 	    {        
-		    $_REQUEST['BannerImage']=post_img($_FILES['BannerImage']['name'], $_FILES['BannerImage']['tmp_name'],"../../images/banners");
+		    $_REQUEST['BannerImage']=post_img($_FILES['BannerImage']['name'], $_FILES['BannerImage']['tmp_name'],"../../../images/banners");
 	    }
 
         if($_REQUEST['BannerImage']=="")

@@ -12,7 +12,7 @@
     if($_REQUEST['mode']=="delete")
     {
         $updateImage = removeFromString($obj->AdvertisementImage,$_REQUEST["image"]);
-        del_img("../../images/advertisement/",$_REQUEST["image"]);   
+        del_img("../../../images/advertisement/",$_REQUEST["image"]);   
         $sql ="update advertisement set AdvertisementImage = '".$updateImage."'
                 where AdvertisementID=".$Id;
         mysql_query($sql);
@@ -37,7 +37,7 @@
 
             if ($file_name!="")
             {        
-                $AdvertisementImage=post_img($file_name, $file_tmp,"../../images/advertisement");
+                $AdvertisementImage=post_img($file_name, $file_tmp,"../../../images/advertisement");
             }    
             
             $AdvertisementImages = $AdvertisementImages.$AdvertisementImage.",";
@@ -105,7 +105,7 @@
                                              <br/>                                            
                                         <?php $images = explode(",",$obj->AdvertisementImage);
                                             foreach($images as $image){
-                                                echo '<span class="col-lg-2"><img src="../../images/advertisement/'.$image.'" class="img-responsive"/><br>
+                                                echo '<span class="col-lg-2"><img src="../../../images/advertisement/'.$image.'" class="img-responsive"/><br>
                                                 <a href="javascript:void(0)" onclick=fnDeleteImage("'.$obj->AdvertisementID.'","'.$image.'")><i class="fa fa-remove">&nbsp;</i>Delete</a>
                                                 </span>';
                                             }

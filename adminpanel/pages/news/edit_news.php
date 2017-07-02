@@ -12,7 +12,7 @@
     if($_REQUEST['mode']=="delete")
     {
         $updateImage = removeFromString($obj->NewsImage,$_REQUEST["image"]);
-        del_img("../../images/news/",$_REQUEST["image"]);   
+        del_img("../../../images/news/",$_REQUEST["image"]);   
         $sql ="update news set NewsImage = '".$updateImage."'
                 where NewsID=".$Id;
         mysql_query($sql);
@@ -37,7 +37,7 @@
 
             if ($file_name!="")
             {        
-                $NewsImage=post_img($file_name, $file_tmp,"../../images/news");
+                $NewsImage=post_img($file_name, $file_tmp,"../../../images/news");
             }    
             
             $NewsImages = $NewsImages.$NewsImage.",";
@@ -105,7 +105,7 @@
                                              <br/>                                            
                                         <?php $images = explode(",",$obj->NewsImage);
                                             foreach($images as $image){
-                                                echo '<span class="col-lg-2"><img src="../../images/news/'.$image.'" class="img-responsive"/><br>
+                                                echo '<span class="col-lg-2"><img src="../../../images/news/'.$image.'" class="img-responsive"/><br>
                                                 <a href="javascript:void(0)" onclick=fnDeleteImage("'.$obj->NewsID.'","'.$image.'")><i class="fa fa-remove">&nbsp;</i>Delete</a>
                                                 </span>';
                                             }

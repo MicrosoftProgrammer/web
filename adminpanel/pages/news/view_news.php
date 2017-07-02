@@ -97,7 +97,7 @@
                                         <td class="center">
                                         <?php $images = explode(",",$obj->NewsImage);
                                         foreach($images as $image){
-                                            echo '<img src="../../images/news/'.$image.'" class="img-responsive" style="width:100px;float:left" />';
+                                            echo '<img src="../../../images/news/'.$image.'" class="img-responsive" style="width:100px;float:left" />';
                                         }
                                          ?>
                                         </td>   

@@ -20,7 +20,7 @@
 
             if ($file_name!="")
             {        
-                $AdvertisementImage=post_img($file_name, $file_tmp,"../../images/advertisement");
+                $AdvertisementImage=post_img($file_name, $file_tmp,"../../../images/advertisement");
             }
 
             if($AdvertisementImage=="")

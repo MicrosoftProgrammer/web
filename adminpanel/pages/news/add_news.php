@@ -20,7 +20,7 @@
 
             if ($file_name!="")
             {        
-                $NewsImage=post_img($file_name, $file_tmp,"../../images/news");
+                $NewsImage=post_img($file_name, $file_tmp,"../../../images/news");
             }
 
             if($NewsImage=="")

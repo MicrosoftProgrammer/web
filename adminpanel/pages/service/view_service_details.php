@@ -46,7 +46,7 @@
                 <td class="width300">
                     <?php $images = explode(",",$obj->ServiceImage);
                         foreach($images as $image){
-                            echo '<span class="col-lg-2"><img src="../../images/service/'.$image.'" class="img-responsive"/><br>
+                            echo '<span class="col-lg-2"><img src="../../../images/service/'.$image.'" class="img-responsive"/><br>
                             </span>';
                         }
                         ?>

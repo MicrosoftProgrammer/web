@@ -6,3 +6,4 @@ adminpanel/vendor
 adminpanel/uploads/*.*
 adminpanel/backup/*.*
 adminpanel/images/*.*
+vendor

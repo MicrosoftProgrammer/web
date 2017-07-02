@@ -94,7 +94,7 @@
                                     <tr class="<?php echo $class; ?> gradeX">
                                         <td><?php echo $cnt; ?></td>
                                         <td><?php echo $obj->BannerText; ?></td>   
-                                        <td class="center"><img src="../../images/banners/<?php echo $obj->BannerImage; ?>" width="100" height="100" /></td>   
+                                        <td class="center"><img src="../../../images/banners/<?php echo $obj->BannerImage; ?>" width="100" height="100" /></td>   
                                         <td class="center"><?php if($obj->Status=="1") echo "Active"; else echo "In-Active"; ?></td>
                                         <td class="center">
                                             <a href="edit_banner.php?mode=edit&Id=<?php echo $obj->BannerID; ?>"><i class="fa fa-edit">&nbsp;</i>Edit</a>

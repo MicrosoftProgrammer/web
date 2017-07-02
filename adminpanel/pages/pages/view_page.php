@@ -48,7 +48,7 @@
                                                 <tr>
                                                     <td>Page Image</td>
                                                     <td class="width300">
-                                                        <img src="../../images/pages/<?php echo $obj->PageImage; ?>" style='width:100%' />
+                                                        <img src="../../../images/pages/<?php echo $obj->PageImage; ?>" style='width:100%' />
                                                     </td>                                                  
                                                 </tr>
                                                 <tr>

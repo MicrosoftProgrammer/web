@@ -20,7 +20,7 @@
 
             if ($file_name!="")
             {        
-                $ServiceImage=post_img($file_name, $file_tmp,"../../images/service");
+                $ServiceImage=post_img($file_name, $file_tmp,"../../../images/service");
             }
 
             if($ServiceImage=="")
