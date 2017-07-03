@@ -18,4 +18,27 @@ if($_REQUEST["mode"]=="permissions"){
 if($_REQUEST["mode"]=="log"){
     echo fnGetLogs($_REQUEST["LogID"]);
 }
+
+if($_REQUEST["mode"]=="career")
+{
+        $sql ="SELECT date(`UploadedTime`) as Name, count(*)as val FROM `career` group by  date(`UploadedTime`)";
+        $result = mysql_query($sql);
+
+        $array = array();
+
+    while ( $row = mysql_fetch_assoc( $result ) ) 
+    {
+        array_push(
+            $array,
+            array(
+                'label' => $row['Name'],
+                'value' => $row['val']
+            )
+        );
+    }
+
+    echo json_encode($array);
+}
+
+
 ?>

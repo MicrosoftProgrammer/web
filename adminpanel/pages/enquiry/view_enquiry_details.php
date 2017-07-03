@@ -19,7 +19,7 @@
 <head>
      <?php echo fnCss(); ?>
 </head>
- <div class="panel panel-default">
+ <div class="panel panel-primary">
     <div class="panel-heading">
     <i class="fa fa-bell fa-fw"></i> Enquiry Details
         <a class="pull-right" href="view_enquiry.php"><i class="fa fa-list">&nbsp;</i>View Enquiry</a>

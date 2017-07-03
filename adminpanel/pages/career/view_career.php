@@ -101,7 +101,7 @@
                                         
                                         <td class="center">
                                         <?php 
-                                            echo '<a target="_blank" href="../../../images/career/'.$obj->Resume.'">Resume</a>';
+                                            echo '<a target="_blank" href="../../../images/resume/'.$obj->Resume.'">Resume</a>';
                                          ?>
                                         </td>   
                                         <td class="center">

@@ -69,10 +69,10 @@
                     <!-- /.panel -->
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <i class="fa fa-bar-chart-o fa-fw"></i> Category
+                                <i class="fa fa-bar-chart-o fa-fw"></i> Career
                             </div>
                             <div class="panel-body">
-                                <div id="category"></div>
+                                <div id="career"></div>
                             </div>
                             <!-- /.panel-body -->
                         </div>
@@ -89,11 +89,11 @@
                           $.ajax({
                             'async': true,
                             'global': false,
-                            'url': '../reports/graph.php?mode=category',
+                            'url': '../../includes/data.php?mode=career',
                             'dataType': "json",
                             'success': function (data) {
                                 var browsersChart = Morris.Donut({
-                                    element: 'category',
+                                    element: 'career',
                                     data   : data
                                 });
                                 browsersChart.options.data.forEach(function(label, i){

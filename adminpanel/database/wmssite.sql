@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 02, 2017 at 07:50 PM
+-- Generation Time: Jul 03, 2017 at 08:42 AM
 -- Server version: 5.1.53
 -- PHP Version: 5.3.4
 
@@ -87,12 +87,17 @@ CREATE TABLE IF NOT EXISTS `career` (
   `Status` tinyint(4) NOT NULL DEFAULT '1',
   `Deleted` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`CareerID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `career`
 --
 
+INSERT INTO `career` (`CareerID`, `Name`, `Email`, `ContactNo`, `Resume`, `UploadedTime`, `Status`, `Deleted`) VALUES
+(1, 'Suresh', '', '4234324234', 'filename.pdf', '2017-07-03 12:51:05', 1, 0),
+(2, 'Suresh', '', '987654321', 'filename_(2).pdf', '2017-07-03 12:52:38', 1, 0),
+(3, 'Suresh', '', '423', 'wms-bugreport1.docx', '2017-07-03 12:59:17', 1, 0),
+(4, 'Suresh', '', '3454353', '3241_(2).pdf', '2017-07-03 13:11:01', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -137,12 +142,15 @@ CREATE TABLE IF NOT EXISTS `enquiry` (
   `Status` tinyint(4) NOT NULL DEFAULT '1',
   `Deleted` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`EnquiryID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `enquiry`
 --
 
+INSERT INTO `enquiry` (`EnquiryID`, `Name`, `Email`, `ContactNo`, `Description`, `EnquiredTime`, `Status`, `Deleted`) VALUES
+(1, 'Suresh', '', '132231', '231213', '2017-07-03 13:19:00', 1, 0),
+(2, 'Suresh', 'mr.suresh89@gmail.com', '234', '234', '2017-07-03 13:31:15', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -207,7 +215,7 @@ INSERT INTO `pages` (`PageID`, `PageTitle`, `PageImage`, `PageShortDescription`,
 (4, 'Privacy Policy', 'noimage.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id sapien dolor. Aliquam sapien sem, luctus id libero at, interdum iaculis purus. Nunc arcu lacus, mattis eget erat non, cursus vestibulum ante. Vivamus eget purus nisi. Pellentesque eu ex volutpat nibh viverra rutrum. Curabitur quis ante condimentum, consequat dui euismod, varius lectus. Ut vitae pretium sapien. In eget sodales ex.\r\n\r\nNunc semper ligula et dignissim cursus. Quisque imperdiet, turpis vel ornare condimentum, neque tor', '<p style="margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: `Open Sans`, Arial, sans-serif;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id sapien dolor. Aliquam sapien sem, luctus id libero at, interdum iaculis purus. Nunc arcu lacus, mattis eget erat non, cursus vestibulum ante. Vivamus eget purus nisi. Pellentesque eu ex volutpat nibh viverra rutrum. Curabitur quis ante condimentum, consequat dui euismod, varius lectus. Ut vitae pretium sapien. In eget sodales ex.</p>\r\n<p style="margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: `Open Sans`, Arial, sans-serif;">Nunc semper ligula et dignissim cursus. Quisque imperdiet, turpis vel ornare condimentum, neque tortor fermentum tellus, in sagittis lectus leo aliquam leo. Cras commodo ex nec nulla blandit rhoncus. Vivamus eget lectus vitae lacus eleifend dignissim. Cras laoreet lacus eu mattis varius. Integer varius, sem nec consectetur tristique, est nunc mattis nibh, eget finibus diam turpis rhoncus ante. Sed id urna porttitor, feugiat tellus eget, dapibus erat.</p>\r\n<p style="margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: `Open Sans`, Arial, sans-serif;">Donec eget ipsum id turpis laoreet cursus. Duis rhoncus id magna quis egestas. Aliquam erat volutpat. Pellentesque eu tempus eros. Proin elit quam, vehicula sed tortor ac, pretium dictum metus. Cras iaculis nisi vel elit ultricies, eget vehicula magna tincidunt. Duis non libero sapien. In a dolor scelerisque, molestie nunc ut, elementum odio. Integer vehicula diam a nulla imperdiet aliquet. Fusce venenatis nisi augue, a vehicula erat eleifend vitae.</p>\r\n<p style="margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: `Open Sans`, Arial, sans-serif;">Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris et risus et nibh sollicitudin consequat. Donec scelerisque vehicula luctus. Morbi nunc lorem, posuere et massa feugiat, pellentesque varius tellus. Ut gravida egestas tortor ut egestas. Nunc eget hendrerit justo. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras fringilla velit diam, quis bibendum justo semper id. Cras lorem erat, consequat sed ultrices ut, laoreet a enim. Suspendisse vulputate tincidunt turpis. Suspendisse potenti. Donec pulvinar condimentum lacus, in ornare risus dignissim eu. Integer sollicitudin, odio in viverra bibendum, eros mauris varius lectus, id tempus urna turpis a leo.</p>', 'privacy-policy', 0, 1, 0, '213', 'we', 'we', 0, 1, 0),
 (5, 'Services', 'noimage.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id sapien dolor. Aliquam sapien sem, luctus id libero at, interdum iaculis purus. Nunc arcu lacus, mattis eget erat non, cursus vestibulum ante. Vivamus eget purus nisi. Pellentesque eu ex volutpat nibh viverra rutrum. Curabitur quis ante condimentum, consequat dui euismod, varius lectus. Ut vitae pretium sapien. In eget sodales ex.', '<p><span style="font-family: `Open Sans`, Arial, sans-serif; text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id sapien dolor. Aliquam sapien sem, luctus id libero at, interdum iaculis purus. Nunc arcu lacus, mattis eget erat non, cursus vestibulum ante. Vivamus eget purus nisi. Pellentesque eu ex volutpat nibh viverra rutrum. Curabitur quis ante condimentum, consequat dui euismod, varius lectus. Ut vitae pretium sapien. In eget sodales ex.</span></p>', 'services', 1, 0, 0, '213', '23', '32', 0, 1, 0),
 (6, 'Career', 'noimage.png', 'Career', '<p><span style="font-family: `Open Sans`, Arial, sans-serif; text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id sapien dolor. Aliquam sapien sem, luctus id libero at, interdum iaculis purus. Nunc arcu lacus, mattis eget erat non, cursus vestibulum ante. Vivamus eget purus nisi. Pellentesque eu ex volutpat nibh viverra rutrum. Curabitur quis ante condimentum, consequat dui euismod, varius lectus. Ut vitae pretium sapien. In eget sodales ex.</span></p>', 'career', 1, 0, 0, 'Career', 'Career', 'Career', 0, 1, 0),
-(7, 'Contact Us', 'noimage.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id sapien dolor. Aliquam sapien sem, luctus id libero at, interdum iaculis purus. Nunc arcu lacus, mattis eget erat non, cursus vestibulum ante. Vivamus eget purus nisi. Pellentesque eu ex volutpat nibh viverra rutrum. Curabitur quis ante condimentum, consequat dui euismod, varius lectus. Ut vitae pretium sapien. In eget sodales ex.', '<p><span style="font-family: `Open Sans`, Arial, sans-serif; text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id sapien dolor. Aliquam sapien sem, luctus id libero at, interdum iaculis purus. Nunc arcu lacus, mattis eget erat non, cursus vestibulum ante. Vivamus eget purus nisi. Pellentesque eu ex volutpat nibh viverra rutrum. Curabitur quis ante condimentum, consequat dui euismod, varius lectus. Ut vitae pretium sapien. In eget sodales ex.</span></p>', 'contact-us', 1, 0, 0, '213', '234', '243', 0, 1, 0);
+(7, 'Contact Us', 'noimage.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id sapien dolor. Aliquam sapien sem, luctus id libero at, interdum iaculis purus. Nunc arcu lacus, mattis eget erat non, cursus vestibulum ante. Vivamus eget purus nisi. Pellentesque eu ex volutpat nibh viverra rutrum. Curabitur quis ante condimentum, consequat dui euismod, varius lectus. Ut vitae pretium sapien. In eget sodales ex.', '<p><span style="color: #222222; font-family: arial, sans-serif; font-size: 13px;">FG6 Sheikh Mohammed Bin Zayed Road (E311 Road)</span></p>\r\n<p><span style="color: #222222; font-family: arial, sans-serif; font-size: 13px;"> Dubai - </span></p>\r\n<p><span style="color: #222222; font-family: arial, sans-serif; font-size: 13px;">United Arab Emirates</span></p>', 'contact-us', 1, 0, 0, '213', '234', '243', 0, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -251,6 +259,8 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `Fax` varchar(200) NOT NULL,
   `Email` varchar(150) NOT NULL,
   `FromEmail` varchar(150) NOT NULL,
+  `AdminUrl` varchar(300) NOT NULL,
+  `WMSUrl` varchar(300) NOT NULL,
   `Location` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -258,9 +268,8 @@ CREATE TABLE IF NOT EXISTS `settings` (
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`CompanyName`, `Logo`, `Address`, `ContactNo`, `Fax`, `Email`, `FromEmail`, `Location`) VALUES
-('Global Pack Shipping & Freight Services L.L.C', '54321logo.jpg', 'Test Company', '9876543210,987659876', '9876543210,987659876', 'test@test.com', 'test@test.com', 'Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris et risus et nibh sollicitudin consequat. Donec scelerisque vehicula luctus. Morbi nunc lorem, posuere et massa feugiat, pellentesque varius tellus. Ut gravida egestas tortor ut egestas. Nunc eget hendrerit justo. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras fringilla velit diam, quis bibendum justo semper id. Cras lorem erat, consequat sed ultrices ut, laoreet a enim. Suspendisse vulputate tincidunt turpis. Suspendisse potenti. Donec pulvinar condimentum lacus, in ornare risus dignissim eu. Integer sollicitudin, odio in viverra bibendum, eros mauris varius lectus, id tempus urna turpis a leo.'),
-('Global Pack Shipping & Freight Services L.L.C', '54321logo.jpg', 'Test Company', '9876543210,987659876', '9876543210,987659876', 'test@test.com', 'test@test.com', 'Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris et risus et nibh sollicitudin consequat. Donec scelerisque vehicula luctus. Morbi nunc lorem, posuere et massa feugiat, pellentesque varius tellus. Ut gravida egestas tortor ut egestas. Nunc eget hendrerit justo. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras fringilla velit diam, quis bibendum justo semper id. Cras lorem erat, consequat sed ultrices ut, laoreet a enim. Suspendisse vulputate tincidunt turpis. Suspendisse potenti. Donec pulvinar condimentum lacus, in ornare risus dignissim eu. Integer sollicitudin, odio in viverra bibendum, eros mauris varius lectus, id tempus urna turpis a leo.');
+INSERT INTO `settings` (`CompanyName`, `Logo`, `Address`, `ContactNo`, `Fax`, `Email`, `FromEmail`, `AdminUrl`, `WMSUrl`, `Location`) VALUES
+('Global Pack Shipping & Freight Services L.L.C', '54321logo.jpg', 'Warehouse # FG6 Sheikh Mohammed Bin Zayed Road (E311 Road) - Dubai - United Arab Emirates', '9876543210,987659876', '9876543210,987659876', 'test@test.com', 'test@test.com', 'http://localhost/1', 'http://localhost/adminpanel', '<iframe src="http://www.map-generator.org/76aa432e-fcb7-486e-bf01-6b1be54a0eee/iframe-map.aspx" scrolling="no" frameborder="0" width="400px" height="400px" scrolling="no" marginheight="0" marginwidth="0"></iframe><br><small><a href="http://www.map-generator.org/76aa432e-fcb7-486e-bf01-6b1be54a0eee/large-map.aspx" target="_blank">Open large map<a/></small>');
 
 -- --------------------------------------------------------
 

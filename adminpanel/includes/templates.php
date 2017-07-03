@@ -282,6 +282,15 @@ function fnHeaderMenu(){
             $html =$html.'<li><a href="page.php?PageSlug='.$obj->PageSlug.'">'.$obj->PageTitle.'</a></li>';
         }
     }
+
+    $html =$html.'<li>  <div id="login" class="dropdown">
+    <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Login
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a target="_blank" href="'.$_SESSION["AdminUrl"].'">Global Pack</a></li>
+      <li><a target="_blank" href="'.$_SESSION["WMSUrl"].'">WMS</a></li>
+    </ul>
+  </div></li>';
                     
     return $html;
 }
@@ -298,49 +307,95 @@ function fnServicesMenu(){
     return $html;
 }
 
-function fnCareer(){
-    $sql = "select * from service where deleted=0";
-    $res=mysql_query($sql);
-    $html ='<div class="col-md-12">';
-    while($obj = mysql_fetch_object($res)){
-        $ServiceImage = explode(",",$obj->ServiceImage);
-        $html =$html.'    <div class="col-sm-6 col-lg-6 col-md-6">
-                            <div id="recent-news">'.$obj->ServiceText.'<a class="pull-right" href="pages.php?mode=service&Id='.$obj->ServiceID.'">Read More</a></div>
-                            <div class="thumbnail">
-                                <img src="images/Service/'.$ServiceImage[0].'" alt="'.$obj->ServiceText.'" />
-                                <div class="caption">
-                                    <h4><a href="#">'.$obj->ServiceText.'</a>
-                                    </h4>
-                                    <p>'.$obj->ServiceShortDescription.'</p>
-                                </div>
-                            </div>
-                        </div>';
-    }
-                    
-   $html =$html.'</div>';
+function fnCareer($resumeerror=""){
+   $html ='';
+   if($resumeerror!=""){
+     $html =$html.'<div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-remove">&nbsp;</i></button>
+                <strong>Error!</strong> '.$resumeerror.'.
+            </div>';
+   }
+   else if($_REQUEST["mode"]=="success"){
+       $html = $html.'<div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <strong>Success!</strong> Resume Uploaded Successfully.
+            </div>';
+   }
+
+    $html =$html.'<div class="panel panel-primary">
+                <div class="panel-heading">
+                    <i class="fa fa-send">&nbsp;</i> Send us your details
+                </div>
+                <div class="panel-body">
+                    <form role="form" action="page.php?mode=resume&PageSlug=career" enctype="multipart/form-data" method="post">
+                        <div class="form-group col-lg-6">
+                            <label>Name</label>
+                            <input class="form-control" name="Name" value="'.$_REQUEST["Name"].'" type="text" required />                                            
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label>Email</label>
+                            <input class="form-control" name="Email" value="'.$_REQUEST["Email"].'" type="email" required />                                            
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Contact No</label>
+                             <input class="form-control" name="ContactNo" value="'.$_REQUEST["ContactNo"].'" type="number" required />  
+                        </div>                                           
+                        <div class="form-group col-md-6">
+                            <label>Resume (PDF/DOC/DOCX & max file size is 200 kb)</label>
+                            <input class="form-control" name="Resume" value="'.$_REQUEST["Resume"].'" type="file" required />  
+                        </div>                                        
+                        <div class="form-group col-lg-12">
+                            <button type="submit" class="btn btn-success"><i class="fa fa-save">&nbsp;</i>Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>';
+
     return $html;
 }
 
 function fnContact(){
-    $sql = "select * from service where deleted=0";
-    $res=mysql_query($sql);
-    $html ='<div class="col-md-12">';
-    while($obj = mysql_fetch_object($res)){
-        $ServiceImage = explode(",",$obj->ServiceImage);
-        $html =$html.'    <div class="col-sm-6 col-lg-6 col-md-6">
-                            <div id="recent-news">'.$obj->ServiceText.'<a class="pull-right" href="pages.php?mode=service&Id='.$obj->ServiceID.'">Read More</a></div>
-                            <div class="thumbnail">
-                                <img src="images/Service/'.$ServiceImage[0].'" alt="'.$obj->ServiceText.'" />
-                                <div class="caption">
-                                    <h4><a href="#">'.$obj->ServiceText.'</a>
-                                    </h4>
-                                    <p>'.$obj->ServiceShortDescription.'</p>
-                                </div>
-                            </div>
-                        </div>';
+    $html ='';
+    if($_REQUEST["mode"]=="success"){
+       $html = $html.'<div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <strong>Success!</strong> Enquiry Sent Successfully.
+            </div>';
     }
-                    
-   $html =$html.'</div>';
+
+    $html =$html.'<div class="col-md-6"><div class="panel panel-primary">
+                <div class="panel-heading">
+                    <i class="fa fa-send">&nbsp;</i> Contact Us
+                </div>
+                <div class="panel-body">
+                    <form role="form" action="page.php?mode=enquiry&PageSlug=contact-us" enctype="multipart/form-data" method="post">
+                        <div class="form-group col-lg-12">
+                            <label>Name</label>
+                            <input class="form-control" name="Name" value="'.$_REQUEST["Name"].'" type="text" required />                                            
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label>Email</label>
+                            <input class="form-control" name="Email" value="'.$_REQUEST["Email"].'" type="email" required />                                            
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label>Contact No</label>
+                             <input class="form-control" name="ContactNo" value="'.$_REQUEST["ContactNo"].'" type="number" required />  
+                        </div>                                           
+                        <div class="form-group col-md-12">
+                            <label>Description</label>
+                            <textarea class="form-control" name="Description" rows="6">'.$_REQUEST["Description"].'</textarea>
+                        </div>                                      
+                        <div class="form-group col-lg-12">
+                            <button type="submit" class="btn btn-success"><i class="fa fa-save">&nbsp;</i>Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>';
+ $html =$html.'<div class="col-md-6" align="center">
+            '.$_SESSION["Location"].'</div>';
+
+
     return $html;
 }
 

@@ -24,6 +24,8 @@
         $file =post_img($_FILES['file']['name'], $_FILES['file']['tmp_name'],"../../../images");
         $Fax = str_replace("'","`",$_REQUEST["Fax"]);
         $Location = str_replace("'","`",$_REQUEST["Location"]);            
+        $AdminUrl = $_REQUEST["AdminUrl"];  
+        $WMSUrl = $_REQUEST["WMSUrl"];  
         
             $sql = "UPDATE settings SET ";
             $sql.= "CompanyName	=	'".$CompanyName."', ";
@@ -33,6 +35,8 @@
             $sql.= "Address	=	'".$Address."', ";
             $sql.= "ContactNo	=	'".$ContactNo."', ";
             $sql.= "Email	=	'".$Email."', ";
+            $sql.= "AdminUrl	=	'".$AdminUrl."', ";
+            $sql.= "WMSUrl	=	'".$WMSUrl."', ";            
             $sql.= "Fax	=	'".$Fax."', ";
             $sql.= "Location	=	'".$Location."', ";                 
             $sql.= "FromEmail	=	'".$FromEmail."'";
@@ -125,6 +129,14 @@
                                             <label>From Email</label>
                                              <input type="email" class="form-control" name="FromEmail" required value="<?php echo $obj->FromEmail; ?>"/>
                                         </div>   
+                                        <div class="form-group col-md-6">
+                                            <label>Admin Panel Url</label>
+                                             <input type="text" class="form-control" name="AdminUrl" required value="<?php echo $obj->AdminUrl; ?>"/>
+                                        </div>  
+                                        <div class="form-group col-md-6">
+                                            <label>WMS Url</label>
+                                             <input type="text" class="form-control" name="WMSUrl" required value="<?php echo $obj->WMSUrl; ?>"/>
+                                        </div>                                                                                  
                                         <div class="form-group col-md-12">
                                             <label>Location Google map</label>
                                             <textarea class="form-control" name="Location" rows="8"><?php echo $obj->Location; ?></textarea>

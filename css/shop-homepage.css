@@ -212,3 +212,12 @@ footer ul li a{
     padding: 10px;
     display: inline-block;
 }
+
+#login{
+    padding: 8px;
+}
+
+#login button {
+    background-color: #A79F3C;
+    color:black;
+}

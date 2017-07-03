@@ -36,13 +36,10 @@ $_SESSION["FromEmail"] = $obj->FromEmail;
 $_SESSION["Logo"] = $obj->Logo;
 $_SESSION["Address"] = $obj->Address;
 $_SESSION["ContactNo"] = $obj->ContactNo;
-$_SESSION["Fax"] = $obj->Fax;
-$_SESSION["AccountNo"] = $obj->AccountNo;
-$_SESSION["Bank"] = $obj->Bank;
-$_SESSION["BankAddress"] = $obj->BankAddress;
-$_SESSION["SwiftCode"] = $obj->SwiftCode;
-$_SESSION["IBAN"] = $obj->IBAN;
-$_SESSION["CurrencyType"] = $obj->CurrencyType;
+$_SESSION["Location"] = $obj->Location;
+$_SESSION["AdminUrl"] = $obj->AdminUrl;
+$_SESSION["WMSUrl"] = $obj->WMSUrl;
+
 
 function backup_tables($tables = '*')
 {
