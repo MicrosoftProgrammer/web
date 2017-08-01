@@ -70,6 +70,8 @@ body{
 
 .thumbnail {
     padding: 0;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 .thumbnail .caption-full {
@@ -166,6 +168,7 @@ footer {
     padding: 10px;
     display: block;
     font-weight: bold;
+        height: 60px;
 }
 .ad-title{
     padding: 0 10px;
@@ -221,3 +224,4 @@ footer ul li a{
     background-color: #A79F3C;
     color:black;
 }
+

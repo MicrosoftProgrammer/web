@@ -145,9 +145,19 @@ function fnFrontMenu(){
 function fnlogoBanner(){
     $html ='<div class="row">
             <div class="col-md-3">
-                <a href="/" title="'.$_SESSION["CompanyName"].'">
-                    <img src="images/'.$_SESSION["Logo"].'" 
-                    alt="'.$_SESSION["CompanyName"].'" />
+                <a href="/" title="'.$_SESSION["CompanyName"].'">';
+
+
+                               $ext = pathinfo("images/".$_SESSION["Logo"], PATHINFO_EXTENSION);
+                                    if($ext=="swf"){
+                                    $html =$html.'<embed src="images/'.$_SESSION["Logo"].'" 
+                    alt="'.$_SESSION["CompanyName"].'" />';
+                                    }
+                                    else{
+                                    $html =$html.'<img src="images/'.$_SESSION["Logo"].'" 
+                    alt="'.$_SESSION["CompanyName"].'" />';
+                                    }
+    $html =$html.'                                 
                 </a>
             </div>
             <div class="col-md-9">
@@ -169,9 +179,18 @@ function fnlogoBanner(){
                                         $active="active";
                                         $cnt++;
                                     }
+
+                                    $ext = pathinfo("images/banners/".$obj->BannerImage, PATHINFO_EXTENSION);
+                                    if($ext=="swf"){
+                                    $html =$html.'<div class="item '.$active.'">
+                                        <embed width="800" height="300" class="slide-image" src="images/banners/'.$obj->BannerImage.'" alt="">
+                                    </div>';
+                                    }
+                                    else{
                                     $html =$html.'<div class="item '.$active.'">
                                         <img class="slide-image" src="images/banners/'.$obj->BannerImage.'" alt="">
                                     </div>';
+                                    }
                                 }
                     $html =$html.'
                             </div>
@@ -215,8 +234,18 @@ function fnAdvertisement(){
         $AdvertisementImage = explode(",",$obj->AdvertisementImage);
         $html =$html.'    
                             <div class="thumbnail">
-                            <a href="pages.php?mode=advertisement&Id='.$obj->AdvertisementID.'">
-                                <img src="images/advertisement/'.$AdvertisementImage[0].'" alt="'.$obj->AdvertisementText.'" />                               
+                            <a href="pages.php?mode=advertisement&Id='.$obj->AdvertisementID.'">';
+                                    $ext = pathinfo("images/advertisement/".$AdvertisementImage[0], PATHINFO_EXTENSION);
+                                    if($ext=="swf"){
+                                    $html =$html.'<emebed width="320" height="150" src="images/advertisement/'.$AdvertisementImage[0].'" alt="'.$obj->AdvertisementText.'" />  ';
+                                    }
+                                    else{
+                                    $html =$html.'<img width="320" height="150" src="images/advertisement/'.$AdvertisementImage[0].'" alt="'.$obj->AdvertisementText.'" />  ';
+                                    }
+
+                $html =$html.'   
+
+
                                     <h4 class="ad-title">'.$obj->AdvertisementText.'
                                     </h4>  
                                     </a>                             
@@ -231,18 +260,20 @@ function fnAdvertisement(){
 function fnService(){
     $sql = "select * from service where deleted=0";
     $res=mysql_query($sql);
-    $html ='<div class="col-md-12">';
+    $html ='<div class="col-md-12" id="service">';
     while($obj = mysql_fetch_object($res)){
         $ServiceImage = explode(",",$obj->ServiceImage);
         $html =$html.'    <div class="col-sm-6 col-lg-6 col-md-6">
-                            <div id="recent-news">'.$obj->ServiceText.'<a class="pull-right" href="pages.php?mode=service&Id='.$obj->ServiceID.'">Read More</a></div>
+        <div class="column">
+                            <div id="recent-news"><a href="pages.php?mode=service&Id='.$obj->ServiceID.'">'.$obj->ServiceText.'</a></div>
                             <div class="thumbnail">
-                                <img src="images/Service/'.$ServiceImage[0].'" alt="'.$obj->ServiceText.'" />
+                                <img src="images/service/'.$ServiceImage[0].'" alt="'.$obj->ServiceText.'" />
                                 <div class="caption">
                                     <h4><a href="#">'.$obj->ServiceText.'</a>
                                     </h4>
                                     <p>'.$obj->ServiceShortDescription.'</p>
                                 </div>
+                            </div>
                             </div>
                         </div>';
     }
@@ -407,16 +438,16 @@ function fnFrontFooter(){
                     <h4>About Us</h4>
                     <div><?php echo fnFooterMenu(); ?></div>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-5">
                     <h4>Services</h4>
                     <div><?php echo fnServicesMenu(); ?></div>
                 </div>                
-                <div class="col-lg-4">                    
+                <div class="col-lg-3">                    
                     <?php $page= fnPage('news'); ?>
                     <h4><?php echo $page->PageTitle; ?></h4>
                     <div><?php echo $page->PageShortDescription; ?></div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-2">
                     <?php $page= fnPage('privacy-policy'); ?>
                     <h4><?php echo $page->PageTitle; ?></h4>
                     <div><?php echo $page->PageShortDescription; ?></div>
