@@ -58,12 +58,12 @@
 </head>
 <body>
 <?php echo fnFrontMenu(); ?>
-    <div class="container">
+    <div class="container grid">
         <?php echo fnlogoBanner(); ?>
         <div class="row" id="main">
             <div class="container">
                 <div class="col-md-9">
-                    <div class="row">
+                    <div class="row grid">
                         <h4 class="title"><?php echo $obj->PageTitle; ?></h4>
                         <div class="content">
                             <?php echo $obj->PageDescription;  ?>
@@ -95,7 +95,9 @@
                 </div>
                 <div class="col-md-3">            
                     <?php echo fnAdvertisement(); ?>
-                    <?php echo fnNews(); ?>
+                    <div id="news">
+                        <?php echo fnNews(); ?>
+                    </div>
                 </div>
             </div>
         </div>

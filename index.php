@@ -21,7 +21,7 @@
 </head>
 <body>
 <?php echo fnFrontMenu(); ?>
-    <div class="container">
+    <div class="container grid">
         <?php echo fnlogoBanner(); ?>
         <div class="row" id="main">
             <div class="container">
@@ -32,7 +32,9 @@
                 </div>
                 <div class="col-md-3">            
                     <?php echo fnAdvertisement(); ?>
-                    <?php echo fnNews(); ?>
+                      <div id="news">
+                        <?php echo fnNews(); ?>
+                    </div>
                 </div>
             </div>
         </div>

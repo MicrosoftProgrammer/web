@@ -116,6 +116,7 @@ footer {
     animation: marquee 15s linear infinite;
 }
 
+
 .news{
     margin-bottom: 10px;
     border-bottom: 1px dashed #1F3F94;
@@ -163,16 +164,18 @@ footer {
 
 #recent-news{
     font-size: 16px;
-    color: #2A271E;
-    background-color: #CAC254;
+    color: #CAC254;
     padding: 10px;
     display: block;
     font-weight: bold;
-        height: 60px;
+    background: #2A271E;      
 }
 .ad-title{
-    padding: 0 10px;
+    padding: 10px;
     text-align: center;
+    background: #2A271E;
+    color: yellowgreen;
+    margin: 0;
 }
 
 footer{
@@ -202,8 +205,8 @@ footer ul li a{
 
 .title{
       font-size: 16px;
-    color: #2A271E;
-    background-color: #CAC254;
+    background-color: #2A271E;
+    color: #CAC254;
     padding: 10px;
     display: block;
     font-weight: bold;
@@ -225,3 +228,54 @@ footer ul li a{
     color:black;
 }
 
+#service{
+    background: #A39E89;
+    padding: 10px;
+    border: 8px solid #CAC254;
+}
+
+.service{
+     background:#2A271E;  
+     padding: 10px; 
+}
+
+.service a{
+     color:#CAC254;  
+}
+
+.service a:hover{
+    text-decoration: none;
+}
+
+#service .thumbnail{
+    background: #666355;
+    border-radius: 0;
+}
+
+#service .thumbnail img{
+    padding: 3px;
+    height: 175px;
+}
+
+#service .thumbnail .caption{
+    color:white;
+}
+
+#service .col-lg-6 {
+      padding: 1px 4px;
+}
+
+#advertisement .thumbnail{
+background: #A39E89;
+    padding: 10px;
+    border: 8px solid #CAC254;
+}
+
+#news{
+    border : 8px solid #CAC254;
+}
+
+.grid{
+    background:#524D44;
+    border:5px solid #3C3B33;
+}

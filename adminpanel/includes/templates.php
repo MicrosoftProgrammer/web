@@ -143,7 +143,7 @@ function fnFrontMenu(){
 }
 
 function fnlogoBanner(){
-    $html ='<div class="row">
+    $html ='<div class="row" style="padding:10px">
             <div class="col-md-3">
                 <a href="/" title="'.$_SESSION["CompanyName"].'">';
 
@@ -229,7 +229,7 @@ function fnNews(){
 function fnAdvertisement(){
     $sql = "select * from advertisement where deleted=0";
     $res=mysql_query($sql);
-    $html ='<div class="row"><div class="col-md-12">';
+    $html ='<div class="row"><div class="col-md-12" id="advertisement">';
     while($obj = mysql_fetch_object($res)){
         $AdvertisementImage = explode(",",$obj->AdvertisementImage);
         $html =$html.'    
@@ -265,12 +265,10 @@ function fnService(){
         $ServiceImage = explode(",",$obj->ServiceImage);
         $html =$html.'    <div class="col-sm-6 col-lg-6 col-md-6">
         <div class="column">
-                            <div id="recent-news"><a href="pages.php?mode=service&Id='.$obj->ServiceID.'">'.$obj->ServiceText.'</a></div>
+                            <div class="service"><a href="pages.php?mode=service&Id='.$obj->ServiceID.'">'.$obj->ServiceText.'</a></div>
                             <div class="thumbnail">
                                 <img src="images/service/'.$ServiceImage[0].'" alt="'.$obj->ServiceText.'" />
                                 <div class="caption">
-                                    <h4><a href="#">'.$obj->ServiceText.'</a>
-                                    </h4>
                                     <p>'.$obj->ServiceShortDescription.'</p>
                                 </div>
                             </div>
