@@ -34,6 +34,7 @@ $_SESSION["CompanyName"] = $obj->CompanyName;
 $_SESSION["Email"] = $obj->Email;
 $_SESSION["FromEmail"] = $obj->FromEmail;
 $_SESSION["Logo"] = $obj->Logo;
+$_SESSION["Caption"] = $obj->Caption;
 $_SESSION["Address"] = $obj->Address;
 $_SESSION["ContactNo"] = $obj->ContactNo;
 $_SESSION["Location"] = $obj->Location;

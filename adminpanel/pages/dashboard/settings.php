@@ -22,6 +22,7 @@
         $Email = str_replace("'","`",$_REQUEST["Email"]);
         $FromEmail = str_replace("'","`",$_REQUEST["FromEmail"]);
         $file =post_img($_FILES['file']['name'], $_FILES['file']['tmp_name'],"../../../images");
+        $caption =post_img($_FILES['caption']['name'], $_FILES['caption']['tmp_name'],"../../../images");
         $Fax = str_replace("'","`",$_REQUEST["Fax"]);
         $Location = str_replace("'","`",$_REQUEST["Location"]);            
         $AdminUrl = $_REQUEST["AdminUrl"];  
@@ -31,6 +32,9 @@
             $sql.= "CompanyName	=	'".$CompanyName."', ";
             if($file!=""){
                 $sql.= "Logo	=	'".$file."', ";
+            }
+            if($caption!=""){
+                $sql.= "Caption	=	'".$caption."', ";
             }
             $sql.= "Address	=	'".$Address."', ";
             $sql.= "ContactNo	=	'".$ContactNo."', ";
@@ -104,18 +108,25 @@
                                         <div class="form-group col-md-6">
                                             <label>Contact No</label>
                                              <input type="text" class="form-control" name="ContactNo" required value="<?php echo $obj->ContactNo; ?>"/>
-                                        </div>                                                                                     
+                                        </div>  
+                                                                                                                         
                                         <div class="form-group col-md-6">
                                             <label>logo</label>
                                             <input type="file" class="form-control" name="file" />                                            
                                         </div>
                                         <div class="form-group col-md-6">
+                                            <label>Caption</label>
+                                            <input type="file" class="form-control" name="caption" />    
+                                            <p><?php echo $obj->Caption; ?></p>                                        
+                                        </div>        
+                                                         <div class="form-group col-md-6">
+                                            <img src="../../../images/<?php echo $_SESSION['Logo']; ?>" alt="Logo" class="img-responsive" />                                          
+                                        </div>                                  
+                                        <div class="form-group col-md-6">
                                             <label>Address</label>
                                              <textarea class="form-control" rows="4" required name="Address"><?php echo $obj->Address; ?></textarea>
                                         </div>  
-                                         <div class="form-group col-md-6">
-                                            <img src="../../../images/<?php echo $_SESSION['Logo']; ?>" alt="Logo" class="img-responsive" />                                          
-                                        </div>
+                        
                                         <div class="form-group col-md-6">
                                             <label>Fax</label>
                                              <input type="text" class="form-control" name="Fax" required value="<?php echo $obj->Fax; ?>"/>

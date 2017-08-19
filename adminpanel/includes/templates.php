@@ -154,12 +154,29 @@ function fnlogoBanner(){
                     alt="'.$_SESSION["CompanyName"].'" />';
                                     }
                                     else{
-                                    $html =$html.'<img src="images/'.$_SESSION["Logo"].'" 
+                                    $html =$html.'<img class="img-responsive" src="images/'.$_SESSION["Logo"].'" 
                     alt="'.$_SESSION["CompanyName"].'" />';
                                     }
     $html =$html.'                                 
-                </a>
-            </div>
+                </a>';
+ $html =$html.'  
+                            <a href="/" title="'.$_SESSION["CompanyName"].'">';
+
+
+                               $ext = pathinfo("images/".$_SESSION["Caption"], PATHINFO_EXTENSION);
+                                    if($ext=="swf"){
+                                    $html =$html.'<br><embed src="images/'.$_SESSION["Caption"].'"  height="30px"
+                                    width="230px"
+                    alt="'.$_SESSION["CompanyName"].'" />';
+                                    }
+                                    else{
+                                    $html =$html.'<img class="img-responsive" src="images/'.$_SESSION["Caption"].'" 
+                    alt="'.$_SESSION["CompanyName"].'" />';
+                                    }
+    $html =$html.'                                 
+                </a>';
+
+       $html =$html.'           </div>
             <div class="col-md-9">
                 <div class="row carousel-holder">
                     <div class="col-md-12">
@@ -226,7 +243,7 @@ function fnNews(){
     return $html;
 }
 
-function fnAdvertisement(){
+function fnAdvertisement($inner = false){
     $sql = "select * from advertisement where deleted=0";
     $res=mysql_query($sql);
     $html ='<div class="row"><div class="col-md-12" id="advertisement">';

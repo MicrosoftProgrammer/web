@@ -277,5 +277,9 @@ background: #A39E89;
 
 .grid{
     background:#524D44;
-    border:5px solid #3C3B33;
+    border: 8px solid #CAC254;
+}
+
+.carousel-inner {
+    border: 8px solid #CAC254;
 }
